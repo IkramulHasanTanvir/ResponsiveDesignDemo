@@ -1,16 +1,5 @@
-# responsive_design
+# ResponsiveDesignDemo
 
-A new Flutter project.
+UI PEVIEW [Dribbble](https://dribbble.com/shots/24704252-Responsive-Design-Demo-Flutter)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Watch tutorial here [![](https://cdn.dribbble.com/userupload/16127526/file/original-7c32874b9a4b4bd2152033d37b82405c.png?resize=1504x846)](https://youtu.be/yl5opfciK8E?si=XZ8i5zSmFq3RhoKT)
