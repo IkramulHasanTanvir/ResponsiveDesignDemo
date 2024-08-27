@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_design/constants.dart';
-import 'package:responsive_design/util/my_box.dart';
-import 'package:responsive_design/util/my_tile.dart';
+import 'package:responsive_design/widgets/my_box.dart';
+import 'package:responsive_design/widgets/my_gridview_builder.dart';
+import 'package:responsive_design/widgets/my_tile.dart';
 
 class DesktopScaffold extends StatefulWidget {
   const DesktopScaffold({super.key});
@@ -15,47 +16,22 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: myDefaultBackground,
-      appBar: myAppBar,
+      //appBar: myAppBar,
       body: Row(
         children: [
           myDrawer,
-
-          Expanded(
+          const Expanded(
             flex: 2,
-            child: Column(
-              children: [
-                AspectRatio(
-                  aspectRatio: 4,
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: GridView.builder(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4),
-                        itemBuilder: (context, index){
-                          return const MyBox();
-                        }),
-                  ),
-                ),
-            
-                Expanded(
-                  child: ListView.builder(
-                      itemCount: 6,
-                      itemBuilder: (context, index){
-                        return const MyTile();
-                      }),
-                )
-              ],
-            ),
+            child: MyGridviewBuilder(
+                itemCount: 50,
+                crossAxisCount: 4,
+                aspectRatio: 1,
+                child: MyBox()),
           ),
-          Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Container(decoration: BoxDecoration(
-                  color: myDefaultBackground,
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: Colors.grey),
-                ),),
-              ),),
+          const Expanded(
+            flex: 1,
+            child: MyTile(),
+          ),
         ],
       ),
     );

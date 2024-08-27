@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyBox extends StatelessWidget {
-  const MyBox({super.key});
+class MyTile extends StatelessWidget {
+  const MyTile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,9 +9,9 @@ class MyBox extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey.shade300,
-          borderRadius:BorderRadius.circular(24),
-          border: Border.all(color: Colors.grey),
+          color: Colors.grey.shade400,
+          borderRadius: BorderRadius.circular(24),
+          border: Border.all(color: Colors.grey.shade600),
         ),
       ),
     );

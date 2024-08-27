@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 
-var myDefaultBackground = Colors.grey.shade300;
+final myDefaultBackground = Colors.grey.shade300;
 
-var myAppBar = AppBar(
-  backgroundColor: Colors.grey.shade800,
+final myAppBar = AppBar(
   foregroundColor: Colors.grey.shade300,
-  title: const Text('ResponsiveDesign'),
+  backgroundColor: Colors.grey.shade600,
+  title: const Text('Responsive'),
 );
 
-var myDrawer = Drawer(
-  backgroundColor: Colors.grey.shade300,
+final myDrawer = Drawer(
+  backgroundColor: Colors.grey.shade400,
   child: const Column(
     children: [
-      DrawerHeader(child: Icon(Icons.favorite)),
+      DrawerHeader(
+        child: Icon(
+          Icons.favorite,
+          size: 44,
+        ),
+      ),
       ListTile(
         leading: Icon(Icons.home),
-        title: Text('D E S H  B O A R D'),
+        title: Text('D E S H B O A R D'),
       ),
       ListTile(
         leading: Icon(Icons.chat),

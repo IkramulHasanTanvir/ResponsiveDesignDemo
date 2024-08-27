@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_design/responsive/desktop_scaffold.dart';
 import 'package:responsive_design/responsive/mobile_scaffold.dart';
-import 'package:responsive_design/responsive/table_scaffold.dart';
+import 'package:responsive_design/responsive/tablet_scaffold.dart';
+import 'package:responsive_design/utils/screen_utils.dart';
 
 class ResponsiveLayout extends StatelessWidget {
-  final Widget mobileScaffold;
-  final Widget tableScaffold;
-  final Widget desktopScaffold;
-
   const ResponsiveLayout({
     super.key,
     required this.mobileScaffold,
-    required this.tableScaffold,
     required this.desktopScaffold,
+    this.tabletScaffold,
   });
+
+  final MobileScaffold mobileScaffold;
+  final TabletScaffold? tabletScaffold;
+  final DesktopScaffold desktopScaffold;
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 640) {
-        return const MobileScaffold();
-      } else if (constraints.maxWidth > 640 && constraints.maxWidth < 1008) {
-        return const TableScaffold();
-      } else {
-        return const DesktopScaffold();
-      }
-    });
+    final size = MediaQuery.of(context).size;
+    final DeviceType deviceType = ScreenUtils.getDeviceType(size.width);
+
+    if (deviceType == DeviceType.mobile) {
+      return mobileScaffold;
+    } else if (deviceType == DeviceType.tablet) {
+      return tabletScaffold ?? mobileScaffold;
+    }
+    return desktopScaffold;
   }
 }
