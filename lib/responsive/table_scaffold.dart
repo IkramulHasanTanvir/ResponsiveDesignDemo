@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_design/constants.dart';
-import 'package:responsive_design/util/my_box.dart';
-import 'package:responsive_design/util/my_tile.dart';
+import 'package:responsive_design/widgets/my_box.dart';
+import 'package:responsive_design/widgets/my_grid_builder.dart';
+import 'package:responsive_design/widgets/my_list_builder.dart';
+import 'package:responsive_design/widgets/my_tile.dart';
 
 class TableScaffold extends StatefulWidget {
   const TableScaffold({super.key});
@@ -17,29 +19,17 @@ class _TableScaffoldState extends State<TableScaffold> {
       backgroundColor: myDefaultBackground,
       appBar: myAppBar,
       drawer: myDrawer,
-
-      body: Column(
+      body: const Column(
         children: [
-          AspectRatio(
+          MyGridBuilder(
             aspectRatio: 4,
-            child: SizedBox(
-              width: double.infinity,
-              child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (context, index){
-                    return const MyBox();
-                  }),
-            ),
+            crossAxisCount: 4,
+            itemCount: 20,
+            child: MyBox(),
           ),
-
           Expanded(
-            child: ListView.builder(
-                itemCount: 6,
-                itemBuilder: (context, index){
-                  return const MyTile();
-                }),
-          )
+            child: MyListBuilder(itemCount: 20, child: MyTile(),),
+          ),
         ],
       ),
     );
